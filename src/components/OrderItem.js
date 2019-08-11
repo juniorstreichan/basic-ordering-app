@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 const CardItem = styled.View`
@@ -9,6 +8,7 @@ const CardItem = styled.View`
   padding: 3px 10px;
   padding-left: 30px;
   margin-bottom: 10px;
+
   elevation: 10;
 `;
 
