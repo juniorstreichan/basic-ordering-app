@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Container, TitleBox, Title, OptionsBox, Button, TextButton } from '../components';
+import { OptionsBox, Title, TitleBox } from '../components';
+import Button from '../components/Button';
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
-    <Container>
+    <Fragment>
       <TitleBox>
         <Icon name="ticket" size={180} color="#FFF" />
         <Title>MEUS PEDIDOS</Title>
       </TitleBox>
       <OptionsBox>
-        <Button>
-          <TextButton>VER PEDIDOS</TextButton>
-        </Button>
+        <Button onPress={() => navigation.navigate('Orders')} text="VER PEDIDOS" />
       </OptionsBox>
-    </Container>
+    </Fragment>
   );
 }

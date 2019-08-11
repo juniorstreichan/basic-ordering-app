@@ -1,5 +1,14 @@
-import Home from './screens/Home';
+import React from 'react';
 
-const App = Home;
+import Routes from './routes';
 
-export default App;
+import './config/StatusBar';
+import { Container } from './components';
+
+export default function App() {
+  return (
+    <Container>
+      <Routes />
+    </Container>
+  );
+}
