@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
+import { AppColors } from '../config/theme';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  padding: 0 4px;
-  background-color: #f5f5f5;
+  background-color: ${AppColors.light};
   justify-content: space-evenly;
   align-items: center;
 `;

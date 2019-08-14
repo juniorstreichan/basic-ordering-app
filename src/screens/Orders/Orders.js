@@ -1,67 +1,41 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import styled from 'styled-components/native';
+import { View, Text } from 'react-native';
+import Fab from '../../components/Fab';
+import { Header, HeaderContent, HeaderText } from '../../components/Header';
 import OrderItem from '../../components/OrderItem';
-
-const OrdersContainer = styled.View`
-  justify-content: space-around;
-  flex: 1;
-  width: 100%;
-`;
-
-const Content = styled.View`
-  flex: 1;
-  margin: 5px 15px;
-  /* background: red; */
-`;
-
-const Header = styled.View`
-  flex-direction: row;
-  width: 100%;
-  height: 100px;
-  border-bottom-width: 4px;
-  border-bottom-color: tomato;
-  color: tomato;
-  align-items: center;
-  padding-left: 30px;
-  background: #fff;
-  margin-bottom: 5px;
-`;
-
-const Return = styled.TouchableOpacity`
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-`;
-
-const HeaderContent = styled.View`
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-`;
+import { Content, OrdersContainer, Actions } from './styles';
+import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
 
 export default function Orders({ navigation }) {
   return (
     <OrdersContainer>
       <Header>
-        {/* <Button  text="VOLTAR" /> */}
         <View>
-          <Return onPress={() => navigation.navigate('Home')}>
-            <Icon name="ios-arrow-back" color="tomato" size={60} />
-          </Return>
+          {/* <Return onPress={() => navigation.navigate('Home')}>
+            <Icon name="ios-arrow-back" color={AppColors.red} size={60} />
+          </Return> */}
         </View>
         <HeaderContent>
-          <Text>10 Pedidos entregues</Text>
-          <Text>17 Pedidos em aberto</Text>
+          <HeaderText>10 Pedidos entregues</HeaderText>
+          <HeaderText>17 Pedidos em aberto</HeaderText>
         </HeaderContent>
       </Header>
       <Content>
-        <OrderItem />
-        <OrderItem />
-        <OrderItem />
+        <SwipeListView
+          keyExtractor={(item, index) => Math.random() * index + ''}
+          data={new Array(3).fill({})}
+          renderItem={(data, rowMap) => (
+            <SwipeRow leftOpenValue={0} rightOpenValue={-200}>
+              <Actions>
+                <Text>Left</Text>
+                <Text>Right</Text>
+              </Actions>
+              <OrderItem />
+            </SwipeRow>
+          )}
+        />
       </Content>
-      <Text>FAB</Text>
+      <Fab />
     </OrdersContainer>
   );
 }
