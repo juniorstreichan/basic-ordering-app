@@ -7,6 +7,7 @@ export const CardItem = styled.View`
   border-radius: 10px;
   padding: 3px 10px;
   padding-left: 30px;
+  margin: 0 5px;
   margin-bottom: 10px;
 
   border-width: ${({ first }) => (first ? '3px' : 0)};
@@ -25,4 +26,22 @@ export const CardHeader = styled.Text`
 export const CardText = styled.Text`
   font-weight: bold;
   font-size: 14px;
+`;
+
+export const ActionsContainer = styled.View`
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+`;
+
+export const ActionButton = styled.TouchableOpacity`
+  height: 80%;
+  flex: 1;
+  /* border-radius: 5px; */
+  background: ${({ success, danger }) => (success ? '#a1dd70' : danger ? '#ff8080' : '#999')};
+
+  justify-content: center;
+  align-items: center;
 `;

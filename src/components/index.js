@@ -31,3 +31,15 @@ export const OptionsBox = styled.View`
   align-items: flex-start;
   min-height: 20%;
 `;
+
+export const InputNumber = styled.TextInput.attrs({
+  keyboardType: 'number-pad',
+})`
+  border-radius: 4px;
+  height: 40px;
+  background: #ddd;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+`;

@@ -1,12 +1,22 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { Modal, Text, View } from 'react-native';
+import { InputNumber } from '../../components';
+import Button from '../../components/Button';
 import Fab from '../../components/Fab';
 import { Header, HeaderContent, HeaderText } from '../../components/Header';
 import OrderItem from '../../components/OrderItem';
-import { Content, OrdersContainer, Actions } from './styles';
-import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
+import ProductPicker from '../../components/ProductPicker';
+import {
+  Content,
+  ModalActions,
+  ModalContainer,
+  ModalContent,
+  ModalHeader,
+  OrdersContainer,
+} from './styles';
 
 export default function Orders({ navigation }) {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <OrdersContainer>
       <Header>
@@ -21,21 +31,27 @@ export default function Orders({ navigation }) {
         </HeaderContent>
       </Header>
       <Content>
-        <SwipeListView
-          keyExtractor={(item, index) => Math.random() * index + ''}
-          data={new Array(3).fill({})}
-          renderItem={(data, rowMap) => (
-            <SwipeRow leftOpenValue={0} rightOpenValue={-200}>
-              <Actions>
-                <Text>Left</Text>
-                <Text>Right</Text>
-              </Actions>
-              <OrderItem />
-            </SwipeRow>
-          )}
-        />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
       </Content>
-      <Fab />
+      <Fab onPress={() => setModalOpen(true)} />
+      <Modal animationType="fade" transparent visible={modalOpen}>
+        <ModalContainer>
+          <ModalContent>
+            <ModalHeader>NOVO PEDIDO</ModalHeader>
+            <Text>Quantidade:</Text>
+            <InputNumber />
+            <Text>Produto:</Text>
+            <ProductPicker selectedValue={null} />
+          </ModalContent>
+          <ModalActions>
+            <Button />
+            <Button text="CANCELAR" onPress={() => setModalOpen(false)} />
+          </ModalActions>
+        </ModalContainer>
+      </Modal>
     </OrdersContainer>
   );
 }
