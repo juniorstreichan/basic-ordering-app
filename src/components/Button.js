@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { AppColors } from '../config/theme';
 
 const StyledButton = styled.TouchableOpacity`
-  background: transparent;
+  background: ${AppColors.dark};
   padding: 5px 15px;
-  min-width: 300px;
+  min-width: 100px;
   min-height: 44px;
   margin: 5px 0;
 
   border-radius: 4px;
   border-width: 3px;
-  border-color: tomato;
+  border-color: ${AppColors.red};
 
   flex-direction: row;
   align-items: center;
@@ -18,14 +19,15 @@ const StyledButton = styled.TouchableOpacity`
 `;
 
 const TextButton = styled.Text`
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
-  color: #000;
+  color: ${AppColors.light};
 `;
 
 export default function Button({ text = 'OK', ...props }) {
   return (
-    <StyledButton {...props}>
+    <StyledButton activeOpacity={0.7} {...props}>
       <TextButton>{text}</TextButton>
     </StyledButton>
   );

@@ -16,9 +16,9 @@ const Shape = styled.TouchableOpacity`
   bottom: 20;
 `;
 
-export default function Fab({ icon = 'plus' }) {
+export default function Fab({ icon = 'plus', ...rest }) {
   return (
-    <Shape activeOpacity={0.7}>
+    <Shape activeOpacity={0.7} {...rest}>
       <Icon name={icon} size={20} color={AppColors.light} />
     </Shape>
   );
