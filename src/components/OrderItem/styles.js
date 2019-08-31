@@ -30,7 +30,7 @@ export const CardText = styled.Text`
 
 export const ActionsContainer = styled.View`
   flex-direction: row;
-  width: 50%;
+  width: 20%;
   justify-content: space-around;
   align-items: center;
   height: 100px;
@@ -39,7 +39,7 @@ export const ActionsContainer = styled.View`
 export const ActionButton = styled.TouchableOpacity`
   height: 80%;
   flex: 1;
-  /* border-radius: 5px; */
+  border-radius: 3px;
   background: ${({ success, danger }) => (success ? '#a1dd70' : danger ? '#ff8080' : '#999')};
 
   justify-content: center;
