@@ -3,8 +3,8 @@ import { AppColors } from '../../config/theme';
 
 export const ModalContainer = styled.View`
   flex: 1;
-  background: rgba(3, 3, 3, 0.8);
-  padding: 20px;
+  background: ${AppColors.dark};
+  padding: 0;
 `;
 
 export const ModalContent = styled.View`
@@ -34,4 +34,3 @@ export const ModalHeader = styled.Text`
   border-top-right-radius: 5px;
   margin-bottom: 10px;
 `;
-

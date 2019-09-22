@@ -16,6 +16,7 @@ const StyledButton = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 `;
 
 const TextButton = styled.Text`

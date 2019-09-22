@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { View, FlatList } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { FlatList } from 'react-native';
 import Fab from '../../components/Fab';
 import { Header, HeaderContent, HeaderText } from '../../components/Header';
 import { ModalOrderForm } from '../../components/ModalOrderForm';
@@ -40,8 +40,7 @@ export default function Orders({ navigation }) {
     <OrdersContainer>
       <Header>
         <HeaderContent>
-          <HeaderText>FEIJOADA</HeaderText>
-          <HeaderText>IBPAZ SANTA ISABEL</HeaderText>
+          <HeaderText>PEDIDOS</HeaderText>
         </HeaderContent>
       </Header>
       <Content>
